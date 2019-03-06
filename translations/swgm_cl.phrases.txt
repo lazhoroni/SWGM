@@ -1,7 +1,0 @@
-"Phrases"
-{
-	"JoinSteam"
-	{
-		"tr"		"[{darkred}smdestek.net{default}] {green}Bu komutu kullanabilmek için {red}grubumuza üye olmalısınız."
-	}
-}
