@@ -1,4 +1,5 @@
 #include <swgm>
+#include <multicolors>
 
 #pragma semicolon 1
 #pragma newdecls required
@@ -27,7 +28,7 @@ public Action Check(int iClient, const char[] sCommand, int iArgc)
 {
 	if(iClient != 0 && SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
 	{
-		PrintToChat(iClient, "%t", "JoinSteam");
+		CPrintToChat(iClient, "%t", "JoinSteam");
 		return Plugin_Stop;
 	}
 	return Plugin_Continue;
