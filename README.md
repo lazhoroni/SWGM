@@ -22,3 +22,12 @@ Latest version of SteamWorks.
 Put these files into your sourcemod folder.
 
 Open group administration panel and copy identifier then set it in swgm_groupid. (Don't forget cfg/sourcemod/swgm.cfg)
+
+# OKUYUNUZ:
+
+- cfg/sourcemod dizinine swgm adında klasör oluşturun.
+- Eklentiyi yükleyin ve sunucunuzu yeniden başlatın.
+- Steam grubu id'nizi kaydedin.
+- cfg/sourcemod/swgm dizinine swgm.cfg dosyası oluşacaktır. Bu dosyayı düzenle diyin.
+- Grupid kısmına kendi kaydettiğiniz grupid'nizi yapıştırın.
+- Tekrar sunucunuzu yeniden başlatın.
