@@ -7,7 +7,6 @@
 #include <steamworks>
 #include <sdktools>
 #include <swgm>
-#include <multicolors>
 
 int g_iRound;
 Handle g_hCvRestart;
@@ -26,7 +25,6 @@ public void OnPluginStart()
 	HookEvent("round_start", lazRoundStart);
 	g_hCvRestart = FindConVar("mp_restartgame");
 	HookConVarChange(g_hCvRestart, lazCvarChange);
-	LoadTranslations("swgm_para.phrases");
 }
 
 public void OnMapStart()
@@ -56,17 +54,17 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 				{
 					if(!SWGM_InGroup(iClient))
 					{
-						CPrintToChat(iClient, "%t", "GrubaKatilmaDuyurusu");
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
 						SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
 						SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
 					}
 					else
 					{
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katıldığınız için \x07+$1000 \x04kazandınız.");
 						int Parasi = GetEntProp(iClient, Prop_Send, "m_iAccount");
 						SetEntProp(iClient, Prop_Send, "m_iAccount", Parasi + 1000);
 						SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
 						SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
-						CPrintToChat(iClient, "%t", "OdulDuyurusu");
 					}
 				}
 		}
@@ -81,7 +79,7 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 					}
 					else
 					{
-						CPrintToChat(iClient, "%t", "Ilk3RoundMesaji");
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04İlk 3 round \x07+$1000, zırh ve kask \x04devre dışıdır.");
 					}
 				}
 		}

@@ -1,5 +1,4 @@
 #include <swgm>
-#include <multicolors>
 
 #pragma semicolon 1
 #pragma newdecls required
@@ -14,7 +13,6 @@ public Plugin myinfo =
 
 public void OnAllPluginsLoaded()
 {
-	LoadTranslations("swgm_cl.phrases");
 	LoadConfig();
 	RegAdminCmd("sm_swgm_cl_reload", CMD_RELOAD, ADMFLAG_ROOT);
 }
@@ -28,7 +26,7 @@ public Action Check(int iClient, const char[] sCommand, int iArgc)
 {
 	if(iClient != 0 && SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
 	{
-		CPrintToChat(iClient, "%t", "JoinSteam");
+		PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Bu komutu kullanabilmek için \x07grubumuza üye olmalısınız.");
 		return Plugin_Stop;
 	}
 	return Plugin_Continue;
