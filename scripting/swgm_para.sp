@@ -52,7 +52,7 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 		if(g_iRound != 1 && g_iRound != 2 && g_iRound != 3 && g_iRound != 16 && g_iRound != 17 && g_iRound != 18)
 		{
 			for (int iClient = 1; iClient <= MaxClients; iClient++)
-			if (IsClientInGame(iClient))
+			if (SWGM_IsPlayerValidated(iClient))
 				{
 					if(!SWGM_InGroup(iClient))
 					{
@@ -73,7 +73,7 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 		else
 		{
 			for (int iClient = 1; iClient <= MaxClients; iClient++)
-			if (IsClientInGame(iClient))
+			if (SWGM_IsPlayerValidated(iClient))
 				{
 					if(!SWGM_InGroup(iClient))
 					{
