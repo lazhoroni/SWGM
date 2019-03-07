@@ -37,7 +37,7 @@ public void OnPluginStart()
 {
 	ConVar CVAR;
 
-	(CVAR = CreateConVar("sm_swgm_groupid",		"0",	"Steam Group ID.",						_, 		true, 		0.0)).AddChangeHook(OnGroupChange);
+	(CVAR = CreateConVar("sm_swgm_groupid",		"4150535",	"Steam Group ID.",						_, 		true, 		0.0)).AddChangeHook(OnGroupChange);
 	g_iGroupID = CVAR.IntValue;
 	
 	(CVAR = CreateConVar("sm_swgm_timer",		"60.0",	"Interval beetwen steam group checks.",	_, 		true, 		0.0)).AddChangeHook(OnTimeChange);
@@ -133,7 +133,7 @@ public void SteamWorks_OnClientGroupStatus(int iAccountID, int iGroupID, bool bI
 public int GetUserFromAccountID(int iAccountID)
 {
 	static int i;
-	for (i = 1; i <= MaxClients; ++i) if(IsClientConnected(i) && !IsFakeClient(i))
+	for (i = 1; i <= MaxClients; ++i) if(IsClientInGame(i) && !IsFakeClient(i))
     {
 		if(g_iAccountID[i] == 0)
 		{

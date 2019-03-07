@@ -50,41 +50,44 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 		if(g_iRound != 1 && g_iRound != 2 && g_iRound != 3 && g_iRound != 16 && g_iRound != 17 && g_iRound != 18)
 		{
 			for (int iClient = 1; iClient <= MaxClients; iClient++)
-			if (SWGM_IsPlayerValidated(iClient))
+			{
+				if (IsClientInGame(iClient))
 				{
-					if(!SWGM_InGroup(iClient))
-					{
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
-						SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
-						SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
-					}
-					else
-					{
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katıldığınız için \x07+$1000 \x04kazandınız.");
-						int Parasi = GetEntProp(iClient, Prop_Send, "m_iAccount");
-						SetEntProp(iClient, Prop_Send, "m_iAccount", Parasi + 1000);
-						SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
-						SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
-					}
+						if(SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
+						{
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
+							SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
+							SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
+						}
+						else
+						{
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katıldığınız için \x07+$1000 \x04kazandınız.");
+							int Parasi = GetEntProp(iClient, Prop_Send, "m_iAccount");
+							SetEntProp(iClient, Prop_Send, "m_iAccount", Parasi + 1000);
+							SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
+							SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
+						}
 				}
+			}
 		}
 		else
 		{
 			for (int iClient = 1; iClient <= MaxClients; iClient++)
-			if (SWGM_IsPlayerValidated(iClient))
+			{
+				if (IsClientInGame(iClient))
 				{
-					if(!SWGM_InGroup(iClient))
-					{
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
-					}
-					else
-					{
-						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04İlk 3 round \x07+$1000, zırh ve kask \x04devre dışıdır.");
-					}
+						if(SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
+						{
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
+						}
+						else
+						{
+							PrintToChat(iClient, "[\x02smdestek.net\x01] \x04İlk 3 round \x07+$1000, zırh ve kask \x04devre dışıdır.");
+						}
 				}
+			}
 		}
 	}
 }
-
