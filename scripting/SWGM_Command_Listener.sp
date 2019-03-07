@@ -27,6 +27,7 @@ public Action Check(int iClient, const char[] sCommand, int iArgc)
 	if(iClient != 0 && SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
 	{
 		PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Bu komutu kullanabilmek için \x07grubumuza üye olmalısınız.");
+		PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
 		return Plugin_Stop;
 	}
 	return Plugin_Continue;

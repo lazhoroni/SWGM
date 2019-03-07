@@ -55,6 +55,7 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 					if(!SWGM_InGroup(iClient))
 					{
 						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
 						SetEntProp(iClient, Prop_Send, "m_bHasHelmet", 100);
 						SetEntProp(iClient, Prop_Send, "m_ArmorValue", 100);
 					}
@@ -75,7 +76,8 @@ public Action lazRoundStart(Handle hEvent, const char[] Name, bool dontbroadcast
 				{
 					if(!SWGM_InGroup(iClient))
 					{
-						/// BOŞ
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Gruba katılarak \x07+$1000 \x04kazanabilirsiniz.");
+						PrintToChat(iClient, "[\x02smdestek.net\x01] \x04Skor tablosundaki \x07SUNUCU İNTERNET SİTESİ\x04'ne tıklayarak gruba katılabilirsin.");
 					}
 					else
 					{
